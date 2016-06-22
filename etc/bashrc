@@ -32,7 +32,7 @@
 #------------------------------------------------------------------------------
 
 export WM_PROJECT=OpenFOAM
-export WM_PROJECT_VERSION=dev
+export WM_PROJECT_VERSION=4.0
 
 ################################################################################
 # USER EDITABLE PART: Changes made here may be lost with the next upgrade
@@ -48,6 +48,9 @@ export FOAM_INST_DIR=$HOME/$WM_PROJECT
 # export FOAM_INST_DIR=~$WM_PROJECT
 # export FOAM_INST_DIR=/opt/$WM_PROJECT
 # export FOAM_INST_DIR=/usr/local/$WM_PROJECT
+#
+# Build foamyHexMesh
+export FOAMY_HEX_MESH=yes
 #
 # END OF (NORMAL) USER EDITABLE PART
 ################################################################################

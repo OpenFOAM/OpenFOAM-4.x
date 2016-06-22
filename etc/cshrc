@@ -31,7 +31,7 @@
 #------------------------------------------------------------------------------
 
 setenv WM_PROJECT OpenFOAM
-setenv WM_PROJECT_VERSION dev
+setenv WM_PROJECT_VERSION 4.0
 
 ################################################################################
 # USER EDITABLE PART: Changes made here may be lost with the next upgrade
@@ -48,6 +48,9 @@ echo $FOAM_INST_DIR
 # setenv FOAM_INST_DIR  ~$WM_PROJECT
 # setenv FOAM_INST_DIR  /opt/$WM_PROJECT
 # setenv FOAM_INST_DIR  /usr/local/$WM_PROJECT
+#
+# Build foamyHexMesh
+setenv FOAMY_HEX_MESH yes
 #
 # END OF (NORMAL) USER EDITABLE PART
 ################################################################################
@@ -105,7 +108,22 @@ setenv FOAM_SIGFPE
 ################################################################################
 
 # The old dirs to be cleaned from the environment variables
-set foamOldDirs="$WM_PROJECT_DIR $WM_THIRD_PARTY_DIR $HOME/$WM_PROJECT/$LOGNAME $FOAM_SITE_APPBIN $FOAM_SITE_LIBBIN"
+set foamOldDirs=
+if ( $?WM_PROJECT_DIR ) then
+   set foamOldDirs="$foamOldDirs $WM_PROJECT_DIR"
+endif
+if ( $?WM_THIRD_PARTY_DIR ) then
+   set foamOldDirs="$foamOldDirs $WM_THIRD_PARTY_DIR"
+endif
+if ( $?WM_PROJECT ) then
+   set foamOldDirs="$foamOldDirs $HOME/$WM_PROJECT/$LOGNAME"
+endif
+if ( $?FOAM_SITE_APPBIN ) then
+   set foamOldDirs="$foamOldDirs $FOAM_SITE_APPBIN"
+endif
+if ( $?FOAM_SITE_LIBBIN ) then
+   set foamOldDirs="$foamOldDirs $FOAM_SITE_LIBBIN"
+endif
 
 # Location of installation
 # ~~~~~~~~~~~~~~~~~~~~~~~~
