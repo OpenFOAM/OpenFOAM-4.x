@@ -2,7 +2,7 @@
 #
 #+TITLE:     README for [[http://openfoam.org/version/4-0][OpenFOAM-4.0]]
 #+AUTHOR:               The OpenFOAM Foundation
-#+DATE:                     21st June 2016
+#+DATE:                     28th June 2016
 #+LINK:                  http://openfoam.org
 #+OPTIONS: author:nil ^:{}
 # Copyright (c) 2015-2016 OpenFOAM Foundation.
