@@ -1,6 +1,6 @@
 #                            -*- mode: org; -*-
 #
-#+TITLE:     README for [[http://openfoam.org/version/4-0][OpenFOAM-4.0]]
+#+TITLE:     README for [[http://openfoam.org/version/4-0][OpenFOAM-4.x]]
 #+AUTHOR:               The OpenFOAM Foundation
 #+DATE:                     28th June 2016
 #+LINK:                  http://openfoam.org
@@ -23,9 +23,9 @@
   [[http://www.gnu.org/licenses/]], for a description of the GNU General Public
   License terms under which you can copy the files.
 
-* [[http://OpenFOAM.org/version/4-0][Download and installation instructions]]
+* [[http://OpenFOAM.org/download/source][Download and installation instructions]]
 * [[http://OpenFOAM.org/docs][Documentation]]
-* [[http://cpp.openfoam.org/4-0][Source code documentation]]
+* [[http://cpp.openfoam.org/v4][Source code documentation]]
 * [[http://openfoam.org/dev/coding-style-guide/][OpenFOAM C++ Style Guide]]
 * [[http://OpenFOAM.org/bugs][Reporting bugs in OpenFOAM]]
 * [[http://openfoam.org/contact][Contacting the OpenFOAM Foundation]]
