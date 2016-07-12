@@ -306,7 +306,7 @@ void Foam::seulex::solve
                     break;
                 }
                 errOld = min(4*err, 1);
-                scalar expo = 1/(k + 1);
+                scalar expo = 1.0/(k + 1);
                 scalar facmin = pow(stepFactor3_, expo);
                 scalar fac;
                 if (err == 0)
