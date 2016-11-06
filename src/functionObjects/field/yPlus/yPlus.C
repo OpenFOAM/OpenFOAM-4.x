@@ -150,6 +150,7 @@ Foam::functionObjects::yPlus::yPlus
 
     mesh.objectRegistry::store(yPlusPtr);
 
+    read(dict);
     resetName(typeName);
 }
 
@@ -235,7 +236,7 @@ bool Foam::functionObjects::yPlus::write()
 
                 writeTime(file());
                 file()
-                << token::TAB << patch.name()
+                    << token::TAB << patch.name()
                     << token::TAB << minYplus
                     << token::TAB << maxYplus
                     << token::TAB << avgYplus
