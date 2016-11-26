@@ -28,7 +28,7 @@ Group
     grpFieldFunctionObjects
 
 Description
-    This function object calculates the value and location of scalar minimim
+    This function object calculates the value and location of scalar minimum
     and maximum for a list of user-specified fields.  For variables with a rank
     greater than zero, either the min/max of a component value or the magnitude
     is reported.  When operating in parallel, the processor owning the value
