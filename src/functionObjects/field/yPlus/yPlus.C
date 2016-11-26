@@ -141,7 +141,7 @@ Foam::functionObjects::yPlus::yPlus
                 mesh.time().timeName(),
                 mesh,
                 IOobject::NO_READ,
-                IOobject::AUTO_WRITE
+                IOobject::NO_WRITE
             ),
             mesh,
             dimensionedScalar("0", dimless, 0.0)
