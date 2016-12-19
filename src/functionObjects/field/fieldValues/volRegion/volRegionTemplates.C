@@ -84,52 +84,52 @@ Type Foam::functionObjects::fieldValues::volRegion::processValues
     {
         case opSum:
         {
-            result = sum(values);
+            result = gSum(values);
             break;
         }
         case opSumMag:
         {
-            result = sum(cmptMag(values));
+            result = gSum(cmptMag(values));
             break;
         }
         case opAverage:
         {
-            result = sum(values)/values.size();
+            result = gSum(values)/nCells_;
             break;
         }
         case opWeightedAverage:
         {
-            result = sum(weightField*values)/sum(weightField);
+            result = gSum(weightField*values)/gSum(weightField);
             break;
         }
         case opVolAverage:
         {
-            result = sum(V*values)/sum(V);
+            result = gSum(V*values)/volume_;
             break;
         }
         case opWeightedVolAverage:
         {
-            result = sum(weightField*V*values)/sum(weightField*V);
+            result = gSum(weightField*V*values)/gSum(weightField*V);
             break;
         }
         case opVolIntegrate:
         {
-            result = sum(V*values);
+            result = gSum(V*values);
             break;
         }
         case opMin:
         {
-            result = min(values);
+            result = gMin(values);
             break;
         }
         case opMax:
         {
-            result = max(values);
+            result = gMax(values);
             break;
         }
         case opCoV:
         {
-            Type meanValue = sum(values*V)/sum(V);
+            Type meanValue = gSum(values*V)/volume_;
 
             const label nComp = pTraits<Type>::nComponents;
 
@@ -139,7 +139,7 @@ Type Foam::functionObjects::fieldValues::volRegion::processValues
                 scalar mean = component(meanValue, d);
                 scalar& res = setComponent(result, d);
 
-                res = sqrt(sum(V*sqr(vals - mean))/sum(V))/mean;
+                res = sqrt(gSum(V*sqr(vals - mean))/volume_)/mean;
             }
 
             break;
@@ -173,14 +173,10 @@ bool Foam::functionObjects::fieldValues::volRegion::writeValues
             weightField = setFieldValues<scalar>(weightFieldName_, true);
         }
 
-        // Combine onto master
-        combineFields(values);
-        combineFields(V);
-        combineFields(weightField);
+        Type result = processValues(values, V, weightField);
 
         if (Pstream::master())
         {
-            Type result = processValues(values, V, weightField);
 
             // Add to result dictionary, over-writing any previous entry
             resultDict_.add(fieldName, result, true);
