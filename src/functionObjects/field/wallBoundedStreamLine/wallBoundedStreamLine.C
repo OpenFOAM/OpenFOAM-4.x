@@ -2,7 +2,7 @@
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     |
-    \\  /    A nd           | Copyright (C) 2011-2016 OpenFOAM Foundation
+    \\  /    A nd           | Copyright (C) 2011-2017 OpenFOAM Foundation
      \\/     M anipulation  |
 -------------------------------------------------------------------------------
 License
@@ -441,24 +441,7 @@ bool Foam::functionObjects::wallBoundedStreamLine::read(const dictionary& dict)
 {
     //dict_ = dict;
     dict.lookup("fields") >> fields_;
-    if (dict.found("U"))
-    {
-        dict.lookup("U") >> UName_;
-    }
-    else
-    {
-        UName_ = "U";
-        if (dict.found("U"))
-        {
-            IOWarningInFunction
-            (
-                dict
-            )   << "Using deprecated entry \"U\"."
-                << " Please use \"UName\" instead."
-                << endl;
-            dict.lookup("U") >> UName_;
-        }
-    }
+    dict.lookup("U") >> UName_;
 
     if (findIndex(fields_, UName_) == -1)
     {
