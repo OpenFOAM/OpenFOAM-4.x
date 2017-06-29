@@ -2,7 +2,7 @@
 # =========                 |
 # \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
 #  \\    /   O peration     |
-#   \\  /    A nd           | Copyright (C) 2011-2016 OpenFOAM Foundation
+#   \\  /    A nd           | Copyright (C) 2011-2017 OpenFOAM Foundation
 #    \\/     M anipulation  |
 #------------------------------------------------------------------------------
 # License
@@ -48,9 +48,6 @@ export FOAM_INST_DIR=$HOME/$WM_PROJECT
 # export FOAM_INST_DIR=~$WM_PROJECT
 # export FOAM_INST_DIR=/opt/$WM_PROJECT
 # export FOAM_INST_DIR=/usr/local/$WM_PROJECT
-#
-# Build foamyHexMesh
-export FOAMY_HEX_MESH=yes
 #
 # END OF (NORMAL) USER EDITABLE PART
 ################################################################################
